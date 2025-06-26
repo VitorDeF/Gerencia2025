@@ -1,0 +1,27 @@
+services:
+  backend:
+    build:
+      context: ./appGestao
+    container_name: spring-backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://ep-icy-paper-a87j44yo-pooler.eastus2.azure.neon.tech/neondb?user=neondb_owner&password=npg_wOK6CSeW5hlu&sslmode=require&channelBinding=require
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: react-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
