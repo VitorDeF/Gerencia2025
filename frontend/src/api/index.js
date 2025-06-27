@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080';
+const API_URL = 'https://gerencia2025backend.onrender.com';
 
 export const registerUser = async (userData) => {
     const response = await axios.post(`${API_URL}/usuarios/novoUsuario`, userData, { headers: { 'Content-Type': 'application/json' }});
