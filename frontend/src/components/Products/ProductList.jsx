@@ -34,7 +34,7 @@ const ProductList = ({ products = [], onProductsChange, categoryId }) => {
             await updateProduct(selectedProduct.id, {
                 nome: selectedProduct.nome,
                 quantidade: selectedProduct.quantidade + addQty,
-                categoriaId: selectedProduct.categoria.id,
+                categoriaId: selectedProduct.categoriaId,
             });
             await refreshProducts();
             window.location.reload();
@@ -52,7 +52,7 @@ const ProductList = ({ products = [], onProductsChange, categoryId }) => {
             await updateProduct(selectedProduct.id, {
                 nome: selectedProduct.nome,
                 quantidade: selectedProduct.quantidade - removeQty,
-                categoriaId: selectedProduct.categoria.id,
+                categoriaId: selectedProduct.categoriaId,
             });
             await refreshProducts();
             window.location.reload();

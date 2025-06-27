@@ -1,7 +1,5 @@
 package com.gerencia.appGestao.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,10 +19,8 @@ public class ProdutoModel {
     private int quantidade;
     private boolean ativo = true;
     @OneToMany(mappedBy = "produtoId")
-    @JsonBackReference
     private List<MovimentacaoModel> movimentacao;
     @ManyToOne
     @JoinColumn(nullable = false)
-    @JsonBackReference
     private CategoriaModel categoria;
 }

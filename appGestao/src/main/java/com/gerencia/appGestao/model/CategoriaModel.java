@@ -1,7 +1,5 @@
 package com.gerencia.appGestao.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +17,5 @@ public class CategoriaModel {
     private long id;
     private String nome;
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
     private List<ProdutoModel> produtos;
 }
